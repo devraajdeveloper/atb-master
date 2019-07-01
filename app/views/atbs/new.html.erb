@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <title>New ATB</title>
+</head>
+<body>
+
+<div class = "container set-margin-new">
+<% if @atb.errors.any? %>
+
+  <% @atb.errors.full_messages.each do |msg| %>
+  <div class="alert alert-danger">
+  <h3> Correct the below errors add the ATB excel </h3>
+    <ul><li> <%= "#{msg} in excel" %> </li><ul>
+    </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="container">
+    <div class = "jumbotron new-jumbotron">
+        <h2>New ATB Allocation</h2>
+        <p> Please select an excel file for allocation </p>
+          <%= form_for @atb do |f| %>
+            <%= f.file_field :excel_path, class: "form-control-file file-new" %><br/>
+            <%= f.submit class: "btn btn-primary" %>
+          <% end %>
+        </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<div class = "container-fluid set-margin-atb">
+    <div class = "row center atb-header">
+        <div class = "col-sm-1"> Encounter No </div>
+        <div class = "col-sm-1"> Patient Name </div>
+        <div class = "col-sm-1"> Admit Date </div>
+        <div class = "col-sm-1"> Discharge Date </div>
+        <div class = "col-sm-1"> Billed Amount </div>
+        <div class = "col-sm-1"> Balance Amount </div>
+        <div class = "col-sm-1"> Insurance Name </div>
+        <div class = "col-sm-1"> Allocation </div>
+         <div class = "col-sm-1"> Associate ID </div>
+        <div class = "col-sm-1"> Edit </div>
+        <div class = "col-sm-1"> Show </div>
+        <div class = "col-sm-1"> Delete </div>
+        </div>
+    <% @atb.each do |atb| %>
+        <div class = "row center atb-body">
+        <div class = "col-sm-1"><%= atb.encounter_no %> </div>
+        <div class = "col-sm-1"><%= atb.patient_name %> </div>
+        <div class = "col-sm-1"><%= atb.admit_date %> </div>
+        <div class = "col-sm-1"><%= atb.discharge_date %> </div>
+        <div class = "col-sm-1"><%= atb.billed_amount %> </div>
+        <div class = "col-sm-1"><%= atb.balance_amount %> </div>
+        <div class = "col-sm-1"><%= atb.insurance_name %> </div>
+        <div class = "col-sm-1"><%= atb.user_allocation %> </div>
+        <div class = "col-sm-1"><%= atb.associate_id %> </div>
+        <div class = "col-sm-1"><%= link_to "Edit", edit_atb_path(atb), class: "btn btn-warning" %></div>
+        <div class = "col-sm-1"><%= link_to "Show", atb_path(atb), class: "btn btn-primary" %></div>
+        <div class = "col-sm-1"><%= link_to "Delete",atb_path(atb), class: "btn btn-danger" %></div>
+        </div>
+    <% end %>
+</div>
