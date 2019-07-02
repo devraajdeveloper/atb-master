@@ -1,0 +1,21 @@
+
+<div class = "container center"> <h3>Viewing All Users</h3> </div>
+<div class = "container set-margin-atb">
+    <div class = "row center atb-header">
+        <div class = "col-sm-2"> Associate ID </div>
+        <div class = "col-sm-2"> Associate Name </div>
+        <div class = "col-sm-2"> Project Name </div>
+        <div class = "col-sm-2"> Password </div>
+        </div>
+    <% @associate.each do |associate| %>
+        <div class = "row center atb-body">
+        <div class = "col-sm-2"><%= associate.associate_id %> </div>
+        <div class = "col-sm-2"><%= associate.associate_name %> </div>
+        <div class = "col-sm-2"><%= associate.project_name %> </div>
+        <div class = "col-sm-2"><%= associate.password %> </div>
+        <div class = "col-sm-1"><%= link_to "Edit", edit_associate_path(associate), class: "btn btn-warning" %></div>
+        <div class = "col-sm-1"><%= link_to "Show", associate_path(associate), class: "btn btn-primary" %></div>
+        <div class = "col-sm-1"><%= link_to "Delete",associate_path(associate), class: "btn btn-danger" %></div>
+        </div>
+    <% end %>
+</div>

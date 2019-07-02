@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190701132717) do
+ActiveRecord::Schema.define(version: 20190701140715) do
+
+  create_table "associates", force: :cascade do |t|
+    t.string "associate_id"
+    t.string "associate_name"
+    t.string "project_name"
+    t.string "password"
+  end
 
   create_table "atbs", force: :cascade do |t|
     t.string "encounter_no"

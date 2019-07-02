@@ -1,0 +1,3 @@
+class Associate < ApplicationRecord
+    
+end
