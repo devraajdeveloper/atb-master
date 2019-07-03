@@ -1,0 +1,31 @@
+<div class = "container set-margin-login">
+    <div class = "jumbotron">
+            <h3 class="center"> Edit Users </h3><br/><br/>
+             <%= form_for @associate do |f| %>
+                <div class = "row">
+                <div class = "col"> 
+                    <%= f.label :"Associate ID" %> 
+                    <%= f.text_field :"associate_id", class: "form-control" %>
+                </div>
+                 <div class = "col"> 
+                    <%= f.label :"Associate Name" %> 
+                    <%= f.text_field :"associate_name", class: "form-control" %>
+                </div>
+            </div>
+            <br/><br/>
+            <div class = "row">
+                <div class = "col"> 
+                    <%= f.label :"Project Name" %> 
+                    <%= f.text_field :"project_name", class: "form-control" %>
+                </div>
+                 <div class = "col"> 
+                    <%= f.label :"Password" %> 
+                    <%= f.text_field :"password", class: "form-control" %>
+                </div>
+            </div>
+            <br/><br/>
+            <%= f.submit :"Update", class: "btn btn-warning" %>
+            <% end %>
+            <br/><br/>
+    </div>
+</div>

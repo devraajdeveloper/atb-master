@@ -36,6 +36,8 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'rails-ujs'
 
+gem 'bcrypt', '~> 3.1.7'
+
 group :development, :test do
   gem 'sqlite3', '~> 1.3.11'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

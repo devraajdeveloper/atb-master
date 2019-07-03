@@ -25,8 +25,34 @@ class AtbsController < ApplicationController
             if Atb.any?
             @atb = Atb.all
             else
-                redirect_to root_path
+                redirect_to pages_home_path
                 flash[:notice] = "No ATB found"
             end
     end
+
+    def edit
+        @atb = Atb.find(params[:id])
+    end
+
+    def update
+        @atb= Atb.find(params[:id])
+        if @atb.update(atb_params)
+            flash[:notice] = "Record updated successfully"
+            redirect_to atbs_path
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @atb = Atb.find(params[:id])
+        @atb.destroy
+        flash[:notice] = "Record is successfully deleted"
+        redirect_to pages_home_path
+    end
+
+    def atb_params
+        params.require(:atb).permit(:encounter_no, :patient_name, :admit_date, :discharge_date, :billed_amount, :balance_amount, :insurance_name, :user_allocation, :associate_id);
+    end
+
 end

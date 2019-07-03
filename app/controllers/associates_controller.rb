@@ -20,4 +20,8 @@ class AssociatesController < ApplicationController
     def index
         @associate = Associate.all
     end
+
+    def edit
+        @associate = Associate.find(params[:id]);
+    end
 end
