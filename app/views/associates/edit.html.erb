@@ -23,6 +23,13 @@
                     <%= f.text_field :"password", class: "form-control" %>
                 </div>
             </div>
+             <br/><br/>
+            <div class = "row">
+                <div class = "col"> 
+                    <%= f.label :"Access" %> 
+                    <%= f.select :"access", options_for_select([["Select One", ""], "Associate", "Supervisor"]), class: "form-control" %>
+                </div>
+            </div>
             <br/><br/>
             <%= f.submit :"Update", class: "btn btn-warning" %>
             <% end %>

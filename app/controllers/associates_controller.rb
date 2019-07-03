@@ -13,8 +13,25 @@ class AssociatesController < ApplicationController
         end
     end
 
+    def update
+        @associate= Associate.find(params[:id])
+        if @associate.update(associate_params)
+            flash[:notice] = "Record updated successfully"
+            redirect_to associates_path(@associate)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @associate = Associate.find(params[:id])
+        @associate.destroy
+        flash[:notice] = "Article is successfully deleted"
+        redirect_to associates_path
+    end
+
     def associate_params
-        params.require(:associate).permit(:associate_id, :associate_name, :project_name, :password);
+        params.require(:associate).permit(:associate_id, :associate_name, :project_name, :password, :access);
     end
 
     def index

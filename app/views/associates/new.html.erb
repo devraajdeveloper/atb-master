@@ -17,6 +17,10 @@
 <%= f.label :"Password" %>
 <%= f.text_field :"password", class: "form-control" %>
 </div>
+<div class="form-group">
+<%= f.label :"Access Lavel" %>
+<%= f.select :"access", options_for_select([["Select One", ""], "Associate", "Supervisor"]), class: "form-control" %>
+</div>
 <%= f.submit :"Add User", class: "btn btn-primary" %>
 </div>
 </div>

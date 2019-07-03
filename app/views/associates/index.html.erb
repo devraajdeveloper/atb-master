@@ -14,7 +14,7 @@
         <div class = "col-sm-3"><%= associate.associate_name %> </div>
         <div class = "col-sm-3"><%= associate.project_name %> </div>
         <div class = "col-sm-1"><%= link_to "Edit", edit_associate_path(associate), class: "btn btn-warning btn-sm" %></div>
-        <div class = "col-sm-1"><%= link_to "Delete",associate_path(associate), class: "btn btn-danger btn-sm" %></div>
+        <div class = "col-sm-1"><%= link_to "Delete",associate_path(associate), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-danger btn-sm" %></div>
         </div>
     <% end %>
     </div>
