@@ -1,12 +1,74 @@
 <div class="container">
-  <h1 class="center">Welcome to Cerner ATB Master</h1>
+  <h3 class="center">Welcome to Cerner ATB Master </h3><br/><br/>
   <div class="row">
-    <div class="col" style="background-color:lavender;">
-        <%= link_to "Add ATB", new_atb_path %>
+    <div class="col">
+          <div class="container">
+              <div class="card file-upload-card" style="width:250px">
+                <%= image_tag "file_upload.png", class: "card-img-top", style: "width:50%" %>
+                <div class="card-body center">
+                <h5 class="card-title">Add New ATB</h5>
+                <%= link_to "", new_atb_path, class: "stretched-link" %>
+                </div>
+              </div>
+          </div>
+      </div>
+    <div class="col">
+     <div class="container">
+              <div class="card file-upload-card" style="width:250px">
+                <%= image_tag "view_atb.png", class: "card-img-top", style: "width:50%" %>
+                <div class="card-body center">
+                <h5 class="card-title">View ATB</h5>
+                <%= link_to "", atbs_path, class: "stretched-link" %>
+                </div>
+              </div>
+          </div>
     </div>
-    <div class="col" style="background-color:orange;">
-        <%= link_to "View ATB", atbs_path %>
+    <div class="col">
+     <div class="container">
+              <div class="card file-upload-card" style="width:250px">
+                <%= image_tag "associates.png", class: "card-img-top", style: "width:50%" %>
+                <div class="card-body center">
+                <h5 class="card-title">Associates</h5>
+                <%= link_to "", associates_path, class: "stretched-link" %>
+                </div>
+              </div>
+          </div>
     </div>
-    <div class="col" style="background-color:lavender;">.col</div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+          <div class="container">
+              <div class="card file-upload-card" style="width:250px">
+                <%= image_tag "track_work.png", class: "card-img-top", style: "width:50%" %>
+                <div class="card-body center">
+                <h5 class="card-title">Work Status</h5>
+                <%= link_to "", new_atb_path, class: "stretched-link" %>
+                </div>
+              </div>
+          </div>
+      </div>
+    <div class="col">
+     <div class="container">
+              <div class="card file-upload-card" style="width:250px">
+                <%= image_tag "atb-analysis.png", class: "card-img-top", style: "width:50%" %>
+                <div class="card-body center">
+                <h5 class="card-title">ATB Analysis</h5>
+                <%= link_to "", atbs_path, class: "stretched-link" %>
+                </div>
+              </div>
+          </div>
+    </div>
+    <div class="col">
+     <div class="container">
+              <div class="card file-upload-card" style="width:250px">
+                <%= image_tag "reports.png", class: "card-img-top", style: "width:50%" %>
+                <div class="card-body center">
+                <h5 class="card-title">Reports</h5>
+                <%= link_to "", associates_path, class: "stretched-link" %>
+                </div>
+              </div>
+          </div>
+    </div>
   </div>
 </div>

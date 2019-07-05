@@ -1,4 +1,4 @@
-<div class = "container set-margin-login">
+<div class = "container">
     <div class = "jumbotron">
             <h3 class="center"> Edit Users </h3><br/><br/>
              <%= form_for @associate do |f| %>
@@ -26,8 +26,8 @@
              <br/><br/>
             <div class = "row">
                 <div class = "col"> 
-                    <%= f.label :"Access" %> 
-                    <%= f.select :"access", options_for_select([["Select One", ""], "Associate", "Supervisor"]), class: "form-control" %>
+                    <%= f.label :"Access" %> <br/>
+                    <%= f.select :"access", options_for_select([["Select One", ""], "Associate", "Supervisor"]), class: "drop-down" %>
                 </div>
             </div>
             <br/><br/>

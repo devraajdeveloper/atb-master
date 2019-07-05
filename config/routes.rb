@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :atbs
   resources :associates
   resources :workstation
+
+  get 'login', to: 'pages#new'
+  post 'login', to: 'pages#create'
+  delete 'logout', to: 'pages#destroy'
 end
