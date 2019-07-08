@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'pages/home', to:'pages#home'
   resources :atbs
   resources :associates
-  resources :workstation
+  resources :workstations
 
   get 'login', to: 'pages#new'
   post 'login', to: 'pages#create'

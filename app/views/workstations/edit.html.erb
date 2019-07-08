@@ -1,0 +1,53 @@
+<div class = "container">
+    <div class = "jumbotron">
+        <h3> Working on Encounter </h3>
+        <%= form_for @atb do |f| %>
+            <div class = "row">
+                <div class = "col"> 
+                    <%= f.label :"Encounter No" %> 
+                    <%= f.text_field :"encounter_no", class: "form-control", :readonly => true %>
+                </div>
+                 <div class = "col"> 
+                    <%= f.label :"Patient Name" %> 
+                    <%= f.text_field :"patient_name", class: "form-control", :readonly => true %>
+                </div>
+                 <div class = "col"> 
+                    <%= f.label :"Admit Date" %> 
+                    <%= f.text_field :"admit_date", class: "form-control", :readonly => true %>
+                </div>
+            </div>
+            <br/><br/>
+             <div class = "row">
+                 <div class = "col"> 
+                    <%= f.label :"Discharge Date" %> 
+                    <%= f.text_field :"discharge_date", class: "form-control", :readonly => true %>
+                </div>
+                <div class = "col"> 
+                    <%= f.label :"Billed Amount" %> 
+                    <%= f.text_field :"billed_amount", class: "form-control", :readonly => true %>
+                </div>
+                 <div class = "col"> 
+                    <%= f.label :"Balance Amount" %> 
+                    <%= f.text_field :"balance_amount", class: "form-control", :readonly => true %>
+                </div>
+            </div>
+             <br/><br/>
+             <div class = "row">
+                 <div class = "col"> 
+                    <%= f.label :"Insurance Name" %> 
+                    <%= f.text_field :"insurance_name", class: "form-control", :readonly => true %>
+                </div>
+                <div class = "col"> 
+                    <%= f.label :"Allocation" %> 
+                    <%= f.text_field :"user_allocation", class: "form-control", :readonly => true %>
+                </div>
+                 <div class = "col"> 
+                    <%= f.label :"Associate ID" %> 
+                    <%= f.text_field :"associate_id", class: "form-control", :readonly => true %>
+                </div>
+            </div>
+             <br/><br/>
+             <%= f.submit :"Done", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

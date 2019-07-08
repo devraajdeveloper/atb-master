@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
     def home
-       
+        require_user
     end
 
     def new

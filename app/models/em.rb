@@ -1,0 +1,3 @@
+class Em < ApplicationRecord
+    
+end

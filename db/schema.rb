@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190703095454) do
+ActiveRecord::Schema.define(version: 20190706082343) do
 
   create_table "associates", force: :cascade do |t|
     t.string "associate_id"
@@ -30,6 +30,39 @@ ActiveRecord::Schema.define(version: 20190703095454) do
     t.string "insurance_name"
     t.string "user_allocation"
     t.string "associate_id"
+  end
+
+  create_table "ems", force: :cascade do |t|
+    t.string "status"
+    t.string "action"
+    t.string "rm_checked"
+    t.string "cpdi"
+    t.string "clearing_house"
+    t.string "website_checked"
+    t.string "self_resolvable"
+    t.string "source_of_resolution"
+  end
+
+  create_table "workstations", force: :cascade do |t|
+    t.string "encounter_no"
+    t.string "patient_name"
+    t.string "admit_date"
+    t.string "discharge_date"
+    t.string "billed_amount"
+    t.string "balance_amount"
+    t.string "insurance_name"
+    t.string "user_allocation"
+    t.string "associate_id"
+    t.string "notes"
+    t.string "status_code"
+    t.string "action_code"
+    t.string "date"
+    t.string "rm_checked"
+    t.string "cpdi"
+    t.string "clearing_house"
+    t.string "website_checked"
+    t.string "self_resolution"
+    t.string "source_of_resolution"
   end
 
 end

@@ -1,10 +1,12 @@
 class AtbsController < ApplicationController
     require 'roo'
     def new
+        require_user
         @atb = Atb.new
     end
 
     def create
+        require_user
         # render plain: params[:atb][:excel_path].path.inspect
         path = params[:atb][:excel_path].path
         xlsx = Roo::Spreadsheet.open(path)
@@ -13,15 +15,17 @@ class AtbsController < ApplicationController
             row = Hash[[header, xlsx.row(i)].transpose]
             @atb = Atb.new(encounter_no: row["Encntr Number"], patient_name: row["Patient Name"], admit_date: row["Admit Date"], discharge_date: row["Disch Date"], billed_amount: row["Total Charges"], balance_amount: row["Current A/R Balance"], insurance_name: row["Current Health Plan"], user_allocation: row["Allocation"], associate_id: row["Associate ID"])
             if @atb.save 
-                redirect_to atbs_path
                 flash[:notice] = "ATB updated successfully"
             else
                 render 'new'
             end
         end
+        redirect_to atbs_path
     end
 
+    
     def index
+            require_user
             if Atb.any?
             @atb = Atb.all
             else
@@ -31,10 +35,12 @@ class AtbsController < ApplicationController
     end
 
     def edit
+        require_user
         @atb = Atb.find(params[:id])
     end
 
     def update
+        require_user
         @atb= Atb.find(params[:id])
         if @atb.update(atb_params)
             flash[:notice] = "Record updated successfully"
@@ -45,6 +51,7 @@ class AtbsController < ApplicationController
     end
 
     def destroy
+        require_user
         @atb = Atb.find(params[:id])
         @atb.destroy
         flash[:notice] = "Record is successfully deleted"
