@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :current
 
 def current_user
 
-@current_user ||= Associate.find(session[:associate_id]) if session[:associate_id]
+@current_user ||= Associate.find(session[:id]) if session[:id]
 
 end
 

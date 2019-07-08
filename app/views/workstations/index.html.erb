@@ -1,28 +1,20 @@
-<div class = "container-fluid set-margin-atb" >
-    <div class = "row center atb-header">
-        <div class = "col-sm-1"> Encounter No </div>
-        <div class = "col-sm-2"> Patient Name </div>
-        <div class = "col-sm-1"> Admit Date </div>
-        <div class = "col-sm-1"> Discharge Date </div>
-        <div class = "col-sm-1"> Billed Amount </div>
-        <div class = "col-sm-1"> Balance Amount </div>
-        <div class = "col-sm-2"> Insurance Name </div>
-        <div class = "col-sm-1"> Allocation </div>
-         <div class = "col-sm-1"> Associate ID </div>
-        <div class = "col-sm-1"> Edit </div>
-        </div>
-    <% @atb.each do |atb| %>
-        <div class = "row center atb-body">
-        <div class = "col-sm-1"><%= atb.encounter_no %> </div>
-        <div class = "col-sm-2"><%= atb.patient_name %> </div>
-        <div class = "col-sm-1"><%= atb.admit_date %> </div>
-        <div class = "col-sm-1"><%= atb.discharge_date %> </div>
-        <div class = "col-sm-1"><%= atb.billed_amount %> </div>
-        <div class = "col-sm-1"><%= atb.balance_amount %> </div>
-        <div class = "col-sm-2"><%= atb.insurance_name %> </div>
-        <div class = "col-sm-1"><%= atb.user_allocation %> </div>
-        <div class = "col-sm-1"><%= atb.associate_id %> </div>
-        <div class = "col-sm-1"><%= link_to "Start", new_workstation_path(atb), class: "btn btn-primary btn-lg" %></div>
-        </div>
-    <% end %>
-</div>
+<table class = "table">
+    <th>Encounter No</th><th>Patient Name</th><th>Admit Date</th><th>Discharge Date</th><th>Billed Amount</th><th>Balance Amount</th><th>Insurance Name</th>
+    <th>Allocation</th><th>Associate ID</th><th>Edit</th>
+
+     <% @atb.each do |atb| %>
+
+     <tr>
+        <td> <%= atb.encounter_no %> </td>
+        <td> <%= atb.patient_name %> </td>
+        <td> <%= atb.admit_date %> </td>
+        <td> <%= atb.discharge_date %> </td>
+        <td> <%= atb.billed_amount %> </td>
+        <td> <%= atb.balance_amount %> </td>
+        <td> <%= atb.insurance_name %> </td>
+        <td> <%= atb.user_allocation %> </td>
+        <td> <%= atb.associate_id %> </td>
+        <td> <%= link_to "Start >>", new_workstation_path(atb), class: "btn btn-primary btn-sm" %> </td>
+     </tr>
+     <% end %>
+</table>

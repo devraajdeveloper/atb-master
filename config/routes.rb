@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'login', to: 'pages#new'
   post 'login', to: 'pages#create'
   delete 'logout', to: 'pages#destroy'
+  get 'pages/workstation_home', to: "pages#workstation_home"
 end

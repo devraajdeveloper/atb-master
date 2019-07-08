@@ -1,23 +1,17 @@
-
 <div class = "container center"> 
-<div class = jumbotron>
-<h3>Viewing All Users</h3>
-<div class = "container set-margin-atb">
-    <div class = "row center atb-header">
-        <div class = "col-sm-3"> Associate ID </div>
-        <div class = "col-sm-3"> Associate Name </div>
-        <div class = "col-sm-3"> Project Name </div>
-        </div>
-    <% @associate.each do |associate| %>
-        <div class = "row center atb-body">
-        <div class = "col-sm-3"><%= associate.associate_id %> </div>
-        <div class = "col-sm-3"><%= associate.associate_name %> </div>
-        <div class = "col-sm-3"><%= associate.project_name %> </div>
-        <div class = "col-sm-1"><%= link_to "Edit", edit_associate_path(associate), class: "btn btn-warning btn-sm" %></div>
-        <div class = "col-sm-1"><%= link_to "Delete",associate_path(associate), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-danger btn-sm" %></div>
-        </div>
-    <% end %>
+    <div class = jumbotron>
+        <table class = "table">
+            <th>Associate ID</th><th>Associate Name</th><th>Project Name</th><th>Access Level</th><th>Edit</th><th>Delete</th>
+            <% @associate.each do |associate| %>
+                <tr>
+                    <td> <%= associate.associate_id %> </td>
+                    <td> <%= associate.associate_name %> </td>
+                    <td> <%= associate.project_name %> </td>
+                    <td> <%= associate.access %> </td>
+                    <td> <%= link_to "Edit", edit_associate_path(associate), class: "btn btn-warning btn-sm" %> </td>
+                    <td> <%= link_to "Delete",associate_path(associate), method: :delete, data: {confirm: "User will be removed, are you sure ?"}, class: "btn btn-danger btn-sm" %> </td>
+                </tr>
+                <% end %>
+        </table>
     </div>
-    <br/><br/>
-    <%= link_to "Add New Associate", new_associate_path, class: "btn btn-primary btn-block" %>
 </div>
