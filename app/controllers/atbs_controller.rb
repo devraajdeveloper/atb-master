@@ -26,12 +26,17 @@ class AtbsController < ApplicationController
     
     def index
             require_user
-            if Atb.any?
-            @atb = Atb.all
+            if supervisor_access?
+                if Atb.any? 
+                @atb = Atb.all
+                else
+                    redirect_to pages_home_path
+                    flash[:notice] = "No ATB found"
+                end
             else
-                redirect_to pages_home_path
-                flash[:notice] = "No ATB found"
-            end
+                redirect_to pages_workstation_home_path
+                flash[:notice] = "Access Denied"
+            end    
     end
 
     def edit

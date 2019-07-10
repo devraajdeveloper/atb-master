@@ -1,0 +1,27 @@
+
+<table class = "table">
+
+<th>Encounter No</th>
+<th>Balance Amount</th>
+<th>Notes</th><th>Status Code</th><th>Action Code</th><th>Date</th><th>RM Checked</th><th>CPDI</th>
+<th>Clearing House</th><th>Website Checked</th><th>Self Resolvable</th><th>Source</th><th>Edit</th>
+
+<% @workstation.each do |workstation| %>
+    <tr>
+       <td><%= workstation.encounter_no %></td>
+       <td><%= workstation.balance_amount %></td>
+       <td><%= workstation.notes %></td>
+       <td><%= workstation.status_code %></td>
+       <td><%= workstation.action_code %></td>
+       <td><%= workstation.date %></td>
+       <td><%= workstation.rm_checked %></td>
+       <td><%= workstation.cpdi %></td>
+       <td><%= workstation.clearing_house %></td>
+       <td><%= workstation.website_checked %></td>
+       <td><%= workstation.self_resolution %></td>
+       <td><%= workstation.source_of_resolution %></td>
+       <td><%= link_to "Edit", edit_workstation_path(workstation), class: "btn btn-warning btn-sm" %></td> 
+    </tr>
+<% end %>
+
+</table>

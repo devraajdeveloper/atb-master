@@ -16,7 +16,8 @@ class PagesController < ApplicationController
         if user && user.authenticate(params[:session][:password]) && access == "Supervisor"
             session[:id] = user.id
             session[:associate_id] = user.associate_id
-            session[:associate_name] = user.associate_name           
+            session[:associate_name] = user.associate_name  
+            session[:access] = user.access         
             flash[:notice] = "Hi #{session[:associate_name]} welcome to ATB Master"
             redirect_to pages_home_path(user)
 
@@ -25,6 +26,7 @@ class PagesController < ApplicationController
                 session[:associate_name] = user.associate_name           
                 session[:associate_id] = user.associate_id
                 session[:associate_name] = user.associate_name    
+                session[:access] = user.access
                 flash[:notice] = "Hi #{session[:associate_name]} welcome to ATB Master"
                 redirect_to pages_workstation_home_path(user)   
         else

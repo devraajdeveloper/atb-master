@@ -31,4 +31,27 @@ def current
   ::Time.zone ? ::Time.zone.today : ::Date.today
 end
 
+def supervisor_access?
+  if session[:access] == "Supervisor"
+    return true
+  else
+    return false
+  end
+end
+
+def associate_access?
+  if session[:access] == "Associate"
+    return true
+  else
+    return false
+  end
+end
+
+def require_supervisor_access
+
+  if !supervisor_access?
+    
+
+end
+
 end

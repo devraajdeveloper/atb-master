@@ -62,7 +62,8 @@
                  <div class = "col-sm-3"> 
                     <%= f.label :"Status Code" %> 
                     <% status_array = Em.all.map { |em| [em.status] } %>
-                    <%= f.select(:status_code, options_for_select(status_array.uniq), {},  {:class => "form-control", :required => true}  ) %>
+                    <%= f.select(:status_code, options_for_select(status_array.uniq), {},  {:class => "form-control", :required => true }  ) %>
+
                 </div>
                 <div class = "col"> 
                     <%= f.label :"Action Code" %> 
@@ -110,3 +111,4 @@
              <%= f.submit :"Done", class: "btn btn-primary btn-lg" %>
         <% end %>
     </div>
+   

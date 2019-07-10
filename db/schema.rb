@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190706082343) do
+ActiveRecord::Schema.define(version: 20190709132530) do
 
   create_table "associates", force: :cascade do |t|
     t.string "associate_id"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20190706082343) do
     t.string "website_checked"
     t.string "self_resolution"
     t.string "source_of_resolution"
+    t.string "work_status"
   end
 
 end
