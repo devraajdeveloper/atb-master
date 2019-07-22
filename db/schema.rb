@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190709132530) do
+ActiveRecord::Schema.define(version: 20190720120802) do
+
+  create_table "associate_production_reports", force: :cascade do |t|
+    t.string "date"
+    t.integer "daily_target"
+    t.integer "daily_achieved"
+    t.integer "mtd_target"
+    t.integer "mtd_achieved"
+    t.string "mtd_achieved_percentage"
+    t.integer "deficit"
+    t.string "associate_id"
+    t.string "associate_name"
+    t.string "project_name"
+  end
+
+  create_table "associate_reports", force: :cascade do |t|
+    t.string "date"
+    t.integer "daily_target"
+    t.integer "daily_achieved"
+    t.integer "mtd_target"
+    t.integer "mtd_achieved"
+    t.string "mtd_achieved_percentage"
+    t.integer "deficit"
+    t.string "associate_name"
+    t.string "associate_id"
+    t.string "project_name"
+  end
 
   create_table "associates", force: :cascade do |t|
     t.string "associate_id"
@@ -26,10 +52,15 @@ ActiveRecord::Schema.define(version: 20190709132530) do
     t.string "admit_date"
     t.string "discharge_date"
     t.string "billed_amount"
-    t.string "balance_amount"
+    t.float "balance_amount"
     t.string "insurance_name"
     t.string "user_allocation"
     t.string "associate_id"
+  end
+
+  create_table "daily_targets", force: :cascade do |t|
+    t.string "project_name"
+    t.integer "target"
   end
 
   create_table "ems", force: :cascade do |t|
@@ -41,6 +72,20 @@ ActiveRecord::Schema.define(version: 20190709132530) do
     t.string "website_checked"
     t.string "self_resolvable"
     t.string "source_of_resolution"
+  end
+
+  create_table "master_atbs", force: :cascade do |t|
+    t.string "encounter_no"
+    t.string "patient_name"
+    t.string "admit_date"
+    t.string "discharge_date"
+    t.string "billed_amount"
+    t.string "balance_amount"
+    t.string "insurance_name"
+    t.string "created_at"
+    t.string "updated_at"
+    t.string "user_allocation"
+    t.string "associate_id"
   end
 
   create_table "workstations", force: :cascade do |t|

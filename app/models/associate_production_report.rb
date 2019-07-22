@@ -1,0 +1,2 @@
+class AssociateProductionReport < ApplicationRecord
+end

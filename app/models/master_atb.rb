@@ -1,0 +1,2 @@
+class MasterAtb < ApplicationRecord
+end

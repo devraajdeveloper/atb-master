@@ -1,0 +1,3 @@
+class DailyTarget < ApplicationRecord
+
+end

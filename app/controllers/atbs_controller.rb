@@ -1,12 +1,12 @@
 class AtbsController < ApplicationController
     require 'roo'
     def new
-        require_user
+        require_supervisor_access 
         @atb = Atb.new
     end
 
     def create
-        require_user
+        require_supervisor_access
         # render plain: params[:atb][:excel_path].path.inspect
         path = params[:atb][:excel_path].path
         xlsx = Roo::Spreadsheet.open(path)
@@ -14,7 +14,8 @@ class AtbsController < ApplicationController
         (2..xlsx.last_row).map do |i|
             row = Hash[[header, xlsx.row(i)].transpose]
             @atb = Atb.new(encounter_no: row["Encntr Number"], patient_name: row["Patient Name"], admit_date: row["Admit Date"], discharge_date: row["Disch Date"], billed_amount: row["Total Charges"], balance_amount: row["Current A/R Balance"], insurance_name: row["Current Health Plan"], user_allocation: row["Allocation"], associate_id: row["Associate ID"])
-            if @atb.save 
+            @master_atb = MasterAtb.new(encounter_no: row["Encntr Number"], patient_name: row["Patient Name"], admit_date: row["Admit Date"], discharge_date: row["Disch Date"], billed_amount: row["Total Charges"], balance_amount: row["Current A/R Balance"], insurance_name: row["Current Health Plan"], user_allocation: row["Allocation"], associate_id: row["Associate ID"])
+            if @atb.save && @master_atb.save
                 flash[:notice] = "ATB updated successfully"
             else
                 render 'new'
@@ -25,27 +26,22 @@ class AtbsController < ApplicationController
 
     
     def index
-            require_user
-            if supervisor_access?
+            require_supervisor_access
                 if Atb.any? 
-                @atb = Atb.all
+                @atb = Atb.order(:balance_amount)
                 else
                     redirect_to pages_home_path
                     flash[:notice] = "No ATB found"
                 end
-            else
-                redirect_to pages_workstation_home_path
-                flash[:notice] = "Access Denied"
-            end    
     end
 
     def edit
-        require_user
+            require_supervisor_access
         @atb = Atb.find(params[:id])
     end
 
     def update
-        require_user
+        require_supervisor_access
         @atb= Atb.find(params[:id])
         if @atb.update(atb_params)
             flash[:notice] = "Record updated successfully"
@@ -56,7 +52,7 @@ class AtbsController < ApplicationController
     end
 
     def destroy
-        require_user
+        require_supervisor_access
         @atb = Atb.find(params[:id])
         @atb.destroy
         flash[:notice] = "Record is successfully deleted"

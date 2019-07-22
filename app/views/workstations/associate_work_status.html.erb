@@ -1,11 +1,15 @@
 
-<table class = "table">
-
+<table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+  width="100%">
+<thead>
+<tr>
 <th>Encounter No</th>
 <th>Balance Amount</th>
 <th>Notes</th><th>Status Code</th><th>Action Code</th><th>Date</th><th>RM Checked</th><th>CPDI</th>
 <th>Clearing House</th><th>Website Checked</th><th>Self Resolvable</th><th>Source</th><th>Edit</th>
-
+</thead>
+</tr>
+ <tbody>
 <% @workstation.each do |workstation| %>
     <tr>
        <td><%= workstation.encounter_no %></td>
@@ -23,5 +27,5 @@
        <td><%= link_to "Edit", edit_workstation_path(workstation), class: "btn btn-warning btn-sm" %></td> 
     </tr>
 <% end %>
-
+ </tbody>
 </table>

@@ -48,10 +48,25 @@ def associate_access?
 end
 
 def require_supervisor_access
+  if !logged_in?
+    flash[:notice] = "You must be logged in to perform that action"
+    redirect_to root_path
 
-  if !supervisor_access?
-    
+  elsif !supervisor_access?
+    flash[:notice] = "You must be logged in as Supervisor to perform this action"  
+    redirect_to pages_workstation_home_path
+  end
+end
 
+def require_associate_access
+  if !logged_in?
+    flash[:notice] = "You must be logged in to perform that action"
+    redirect_to root_path
+
+  elsif !associate_access?
+    flash[:notice] = "You must be logged in as Supervisor to perform this action"  
+    redirect_to pages_home_path
+  end
 end
 
 end

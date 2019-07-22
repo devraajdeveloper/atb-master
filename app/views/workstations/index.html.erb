@@ -1,7 +1,31 @@
-<table class = "table">
+<div class="container">
+  <%= form_tag("workstations/atb_filter", method: "post") do %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class = "row">
+    <div class = "col">
+      <%= select_tag(:atb_balance, options_for_select([['NA'], ['High To Low'], ['Low To High']]),  {:class => "form-control", :required => true}) %>
+    </div>
+      <% atb_filter_insurance = @atb_for_insurance_list.map { |atb| [atb.insurance_name] } %>
+    <div class = "col">  
+       <% atb_filter_insurance.unshift("All") %>
+       <%= select_tag(:atb_insurance, options_for_select(atb_filter_insurance.uniq, "All"),  {:class => "form-control", :required => true}) %>
+    </div>
+    <div class = "col">  
+    <%= submit_tag("Filter", {:class => "btn btn-primary"}) %>
+    </div>
+  </div>
+<% end %>
+</div>
+<br/>
+<table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+  width="100%">
+  <thead>
+  <tr>
     <th>Encounter No</th><th>Patient Name</th><th>Admit Date</th><th>Discharge Date</th><th>Billed Amount</th><th>Balance Amount</th><th>Insurance Name</th>
     <th>Allocation</th><th>Associate ID</th><th>Edit</th>
-
+</thead>
+</tr>
+<tbody>
      <% @atb.each do |atb| %>
 
      <tr>
@@ -17,4 +41,5 @@
         <td> <%= link_to "Start >>", new_workstation_path(atb), class: "btn btn-primary btn-sm" %> </td>
      </tr>
      <% end %>
+     </tbody>
 </table>

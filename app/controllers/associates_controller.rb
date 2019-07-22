@@ -1,11 +1,11 @@
 class AssociatesController < ApplicationController
     def new
-        require_user
+        require_supervisor_access
         @associate = Associate.new
     end
 
     def create
-        require_user
+        require_supervisor_access
         @associate = Associate.new(associate_params)
         if @associate.save
             flash[:notice] = "Article saved successfully"
@@ -16,7 +16,7 @@ class AssociatesController < ApplicationController
     end
 
     def update
-        require_user
+        require_supervisor_access
         @associate= Associate.find(params[:id])
         if @associate.update(associate_params)
             flash[:notice] = "Record updated successfully"
@@ -27,7 +27,7 @@ class AssociatesController < ApplicationController
     end
 
     def destroy
-        require_user
+        require_supervisor_access
         @associate = Associate.find(params[:id])
         @associate.destroy
         flash[:notice] = "Article is successfully deleted"
@@ -39,12 +39,12 @@ class AssociatesController < ApplicationController
     end
 
     def index
-        require_user
+        require_supervisor_access
         @associate = Associate.all
     end
 
     def edit
-        require_user
+        require_supervisor_access
         @associate = Associate.find(params[:id]);
     end
 end

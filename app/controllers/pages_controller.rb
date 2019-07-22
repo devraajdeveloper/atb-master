@@ -1,10 +1,20 @@
 class PagesController < ApplicationController
     def home
-        require_user
+        require_supervisor_access
     end
 
     def new
 
+    end
+
+    def login
+        if logged_in?
+         if session[:access] == "Associate"
+            redirect_to pages_workstation_home_path
+        elsif session[:access] == "Supervisor"
+            redirect_to pages_home_path
+        end
+    end
     end
 
     def create
@@ -19,7 +29,7 @@ class PagesController < ApplicationController
             session[:associate_name] = user.associate_name  
             session[:access] = user.access         
             flash[:notice] = "Hi #{session[:associate_name]} welcome to ATB Master"
-            redirect_to pages_home_path(user)
+            redirect_to pages_home_path()
 
         elsif user && user.authenticate(params[:session][:password]) && access == "Associate"
                 session[:id] = user.id
@@ -28,7 +38,7 @@ class PagesController < ApplicationController
                 session[:associate_name] = user.associate_name    
                 session[:access] = user.access
                 flash[:notice] = "Hi #{session[:associate_name]} welcome to ATB Master"
-                redirect_to pages_workstation_home_path(user)   
+                redirect_to pages_workstation_home_path()   
         else
             flash[:notice] = "Username/Password is incorrect"
             render 'login'
@@ -38,8 +48,6 @@ class PagesController < ApplicationController
 
     def workstation_home
         
-
-
     end
 
     def destroy
