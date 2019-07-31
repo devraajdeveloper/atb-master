@@ -47,7 +47,7 @@ class PagesController < ApplicationController
     end
 
     def workstation_home
-        
+        require_associate_access
     end
 
     def destroy

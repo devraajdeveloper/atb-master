@@ -1,20 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-company-red">
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-company-red">
   <% if session[:access] == "Supervisor" %>
   <%= link_to "Cerner ATB Master", pages_home_path, class: "navbar-brand" %>
   <% else %>
   <%= link_to "Cerner ATB Master", pages_workstation_home_path, class: "navbar-brand" %>
   <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
     <ul class="navbar-nav ml-auto">
-    <% if logged_in? %>
-    <li><%= link_to 'Log out', logout_path, method: :delete %></li>
-    <% else %>
-    <li><%= link_to 'Log In', root_path %></li>
-    <% end %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> <%= "Hello #{session[:associate_name]}" %> </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <% if logged_in? %>
+          <%= link_to 'Log out', logout_path, method: :delete, class:"dropdown-item" %>
+          <% else %>
+          <%= link_to 'Log In', root_path, class:"dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
+<!--/.Navbar -->

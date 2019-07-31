@@ -2,7 +2,7 @@
 
 .bg-company-red
 {
-    background-color: black
+    background-color: black;
 }
 .center
 {
@@ -57,10 +57,10 @@
 }
 th
 {
-    background-color: darkcyan;
     font-size: 15px;
     font-weight: bold;
-    color: white;
+    text-align: center;
+    align-content: center;
 }
 
 table
@@ -73,7 +73,7 @@ table
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
     font-weight: bold;
-    background-color: green;
+    background-color: #78909C;
     color: white;
 }
 
@@ -85,18 +85,14 @@ table
     white-space: nowrap;
     }
     
-    table.dataTable thead .sorting:after,
-    table.dataTable thead .sorting:before,
-    table.dataTable thead .sorting_asc:after,
-    table.dataTable thead .sorting_asc:before,
-    table.dataTable thead .sorting_asc_disabled:after,
-    table.dataTable thead .sorting_asc_disabled:before,
-    table.dataTable thead .sorting_desc:after,
-    table.dataTable thead .sorting_desc:before,
-    table.dataTable thead .sorting_desc_disabled:after,
-    table.dataTable thead .sorting_desc_disabled:before {
-    bottom: .5em;
-    }
+   .wellcome-text
+   {
+       color: #0277BD;
+   }
 
-
-  
+   .workstation-table
+   {
+       margin-left: 10px;
+       margin-right: 10px;
+       white-space: nowrap;
+   }

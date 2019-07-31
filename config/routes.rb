@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/workstations/associate_allocation', to: 'workstations#associate_allocation'
   get '/workstations/associate_work_status', to: 'workstations#associate_work_status'
   get 'workstations/associate_report', to: 'workstations#associate_report'
+  get '/supervisors/work_status', to: 'supervisors#work_status'
   resources :atbs
   resources :associates
   resources :workstations

@@ -35,8 +35,10 @@ gem "roo", "~> 2.8.0"
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'rails-ujs'
-
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.11'

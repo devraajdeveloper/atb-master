@@ -15,11 +15,16 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<div class = "header_row center">
+    Worked Accounts
+</div>
 <div class = "workstation-table">
 <table id="workstation-index" class="table table-striped table-bordered table-sm" cellspacing="0"
   width="100%">
+  
 <thead>
 <tr>
+<th>Associate</th>
 <th>Encounter No</th>
 <th>Balance Amount</th>
 <th>Notes</th><th>Status Code</th><th>Action Code</th><th>Date</th><th>RM Checked</th><th>CPDI</th>
@@ -30,6 +35,7 @@ $(document).ready(function() {
  <tbody>
 <% @workstation.each do |workstation| %>
     <tr>
+       <td><%= workstation.user_allocation %></td>
        <td><%= workstation.encounter_no %></td>
        <td><%= workstation.balance_amount %></td>
        <td><%= workstation.notes %></td>

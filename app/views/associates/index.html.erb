@@ -1,7 +1,10 @@
 <div class = "container center"> 
     <div class = jumbotron>
+    <div class = "header_row center">
+    Associates
+    </div>
         <table class = "table">
-            <th>Associate ID</th><th>Associate Name</th><th>Project Name</th><th>Access Level</th><th>Edit</th><th>Delete</th>
+            <tr><th>Associate ID</th><th>Associate Name</th><th>Project Name</th><th>Access Level</th><th>Edit</th><th>Delete</th></<tr>
             <% @associate.each do |associate| %>
                 <tr>
                     <td> <%= associate.associate_id %> </td>
@@ -12,6 +15,11 @@
                     <td> <%= link_to "Delete",associate_path(associate), method: :delete, data: {confirm: "User will be removed, are you sure ?"}, class: "btn btn-danger btn-sm" %> </td>
                 </tr>
                 <% end %>
+                <tr>
+                    <td colspan = "6">
+                        <%= link_to "Add New User", new_associate_path, class: "btn btn-secondary btn-lg btn-block" %>
+                    </td>
+                </tr>
         </table>
     </div>
 </div>

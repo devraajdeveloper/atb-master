@@ -1,11 +1,31 @@
-<table id="dtHorizontalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+<html>
+<head>
+<script>
+$(document).ready(function() {
+    $('#workstation-index').DataTable({
+        responsive: true,
+        sPaginationType: "full_numbers",
+        bJQueryUI: true,
+        paging: false,
+        "scrollX": true
+      });
+} );
+
+</script>
+</head>
+<body>
+<div class = "header_row center">
+    Master Data
+</div>
+<div class = "workstation-table">
+<table id="workstation-index" class="table table-striped table-bordered table-sm" cellspacing="0"
   width="100%">
   <thead>
     <tr>
-<tr class = "header_row"> <td colspan = "9"> <%= "Master Data : #{session[:associate_name]}" %> </td> </tr>
 <th>Encounter No</th><th>Patient Name</th><th>Admit Date</th><th>Discharge Date</th><th>Billed Amount</th>
 <th>Balance Amount</th><th>Insurance Name</th><th>Allocation</th><th>Associate ID</th>
 </tr>
+</thead>
  <tbody>
 <% @master_atb.each do |master_atb| %>
     <tr>
@@ -22,3 +42,6 @@
 <% end %>
  </tbody>
 </table>
+</div>
+</body>
+</html>
